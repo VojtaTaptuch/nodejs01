@@ -12,6 +12,7 @@ href='https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css')
                 thead
                     tr.bg-dark.text-light
                         th Zadání úkolů
+                        th Odměna
                         th Druh
                         th Datum zadání
                         th Datum dokončení
@@ -19,6 +20,7 @@ href='https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css')
                     each ukol in ukoly
                         tr
                             td #{ukol.task}
+                            td #{ukol.money}
                             td #{ukol.druh}
                             td #{ukol.zadani}      
                             td #{ukol.splneni}                

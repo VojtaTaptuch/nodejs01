@@ -22,7 +22,7 @@ console.log(`Port ${port}`);
 const urlencodedParser = bodyParser.urlencoded({extended: false});
 app.post('/savedata', urlencodedParser, (req, res) => {
 let date = moment().format('YYYY-MM-DD');
-let str = `"${req.body.task}","${req.body.druh}","${date}","${req.body.splneni}"\n`;
+let str = `"${req.body.task}","${req.body.money}","${req.body.druh}","${date}","${req.body.splneni}"\n`;
 fs.appendFile(path.join(__dirname, 'data/data.csv'), str, function (err) {
 if (err) {
 console.error(err);
@@ -37,7 +37,7 @@ res.redirect(301, '/');
 });
 
 app.get("/ukoly", (req, res) => {
-    csvtojson({headers:['task','druh','zadani','splneni']}).fromFile(path.join(__dirname, 
+    csvtojson({headers:['task', 'money','druh','zadani','splneni']}).fromFile(path.join(__dirname, 
     'data/data.csv'))
     .then(data => {
     console.log(data);
